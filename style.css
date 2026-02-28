@@ -1,0 +1,636 @@
+/* ============================================================
+   CODEVERSE — STYLESHEET
+   Tip: CSS is read top to bottom. Variables at the top
+   control colors so you can rebrand in one place.
+============================================================ */
+
+/* --- 1. DESIGN TOKENS (your color palette & fonts) --- */
+:root {
+  --black:    #0a0a0a;   /* near-black background */
+  --dark:     #111111;   /* slightly lighter dark */
+  --surface:  #1a1a1a;   /* cards and panels */
+  --border:   #2a2a2a;   /* subtle borders */
+  --white:    #f5f5f0;   /* off-white text */
+  --muted:    #888888;   /* secondary text */
+  --accent:   #b8ff57;   /* lime green — the "CodeVerse color" */
+  --accent2:  #57d4ff;   /* light blue accent */
+
+  --font-display: 'DM Mono', monospace;  /* headings — code-y feel */
+  --font-body:    'DM Sans', sans-serif; /* body text — readable */
+
+  --radius: 12px;       /* how rounded corners are */
+  --max-w:  1100px;     /* max content width */
+}
+
+/* --- 2. RESET — Removes browser default weirdness --- */
+*, *::before, *::after {
+  box-sizing: border-box; /* padding doesn't break layout */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* smooth scrolling when clicking nav links */
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden; /* no horizontal scroll */
+}
+
+img { max-width: 100%; display: block; }
+a  { text-decoration: none; color: inherit; }
+
+/* --- 3. REUSABLE HELPERS --- */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section-dark {
+  background-color: var(--dark);
+}
+
+/* Small label above section titles, like "// About Us" */
+.section-label {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 46px); /* clamp = responsive font size */
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 56px;
+}
+
+/* --- 4. BUTTONS --- */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+/* The main green button */
+.btn-primary {
+  background: var(--accent);
+  color: var(--black);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(184, 255, 87, 0.3);
+}
+
+/* Ghost button — transparent with white border */
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--white);
+}
+
+/* Outline button (used in event cards) */
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+.btn-outline:hover {
+  background: var(--accent);
+  color: var(--black);
+}
+
+/* Full-width button (used in form) */
+.btn-full { width: 100%; text-align: center; }
+
+/* --- 5. NAVBAR --- */
+.navbar {
+  position: fixed; /* stays at top when you scroll */
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px); /* frosted glass effect */
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+/* JS adds this class when you scroll down */
+.navbar.scrolled {
+  border-bottom-color: var(--border);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+}
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 14px;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+
+/* The "Join Us" button in the nav */
+.nav-cta {
+  background: var(--accent) !important;
+  color: var(--black) !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 13px !important;
+}
+
+/* Hamburger button — hidden on desktop, shown on mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  transition: all 0.3s;
+}
+
+/* --- 6. HERO SECTION --- */
+.hero {
+  min-height: 100vh; /* fills the whole screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 40px 80px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 12px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 99px;
+  margin-bottom: 40px;
+  width: fit-content;
+  animation: fadeUp 0.6s ease both;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 7vw, 88px);
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 28px;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+
+.accent { color: var(--accent); }
+
+.hero-sub {
+  max-width: 500px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 44px;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+/* Floating code lines in the background */
+.hero-bg-code {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0.07; /* very faint */
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--accent);
+  pointer-events: none; /* can't click on it */
+  text-align: right;
+  padding-right: 40px;
+}
+
+/* --- 7. ABOUT CARDS --- */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* responsive columns */
+  gap: 24px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* --- 8. EVENTS --- */
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.event-card {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  transition: border-color 0.2s;
+}
+.event-card:hover { border-color: var(--accent2); }
+
+.event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 56px;
+  font-family: var(--font-display);
+}
+.date-num {
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--accent2);
+  line-height: 1;
+}
+.date-mon {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.event-info { flex: 1; }
+
+.event-tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 3px 10px;
+  border-radius: 99px;
+  margin-bottom: 10px;
+}
+
+.event-info h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.event-info p { color: var(--muted); font-size: 14px; }
+
+/* --- 9. PROJECTS --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden; /* clips the preview image */
+  transition: transform 0.2s, border-color 0.2s;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+}
+
+.project-preview {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-emoji { font-size: 48px; }
+
+.project-body { padding: 24px; }
+.project-body h3 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.project-body p { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.project-tags span {
+  font-family: var(--font-display);
+  font-size: 11px;
+  background: var(--border);
+  color: var(--muted);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* --- 10. RESOURCES --- */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.resource-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: all 0.2s;
+}
+.resource-item:hover {
+  border-color: var(--accent2);
+  transform: translateX(4px);
+}
+
+.resource-icon { font-size: 28px; flex-shrink: 0; }
+
+.resource-item h4 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.resource-item p { color: var(--muted); font-size: 13px; }
+
+.resource-arrow {
+  margin-left: auto;
+  font-size: 20px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.resource-item:hover .resource-arrow { color: var(--accent2); }
+
+/* --- 11. CONTACT / FORM --- */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 60px;
+  align-items: start;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Shared styles for input, select, textarea */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 14px 16px;
+  transition: border-color 0.2s;
+  outline: none;
+  resize: vertical; /* only textarea can resize vertically */
+}
+
+.form-group select option { background: var(--surface); }
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+}
+
+.form-success {
+  display: none; /* hidden until JS shows it */
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 14px;
+  text-align: center;
+  padding: 16px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 10px;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 24px;
+}
+.contact-detail > div strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.contact-detail p { color: var(--muted); font-size: 14px; }
+
+.social-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  font-family: var(--font-display);
+  font-size: 13px;
+  border: 1px solid var(--border);
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+.social-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* --- 12. FOOTER --- */
+.footer {
+  text-align: center;
+  padding: 48px 24px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--muted);
+}
+.footer-sub {
+  font-size: 12px;
+  margin-top: 8px;
+  opacity: 0.6;
+}
+
+/* --- 13. ANIMATIONS --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Animate sections into view when they appear on screen */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- 14. RESPONSIVE (Mobile-friendly) --- */
+/* Tablet: 768px and below */
+@media (max-width: 768px) {
+
+  /* Show hamburger, hide nav links by default */
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--black);
+    flex-direction: column;
+    padding: 24px;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links.open { display: flex; } /* JS toggles this */
+
+  .navbar { padding: 16px 24px; }
+
+  .hero {
+    padding: 100px 24px 60px;
+    text-align: center;
+    align-items: center;
+  }
+  .hero-badge { align-self: center; }
+  .hero-sub { text-align: center; }
+  .hero-actions { justify-content: center; }
+  .hero-bg-code { display: none; } /* hide decorative code on mobile */
+
+  .event-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  /* Contact form goes full width on mobile */
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .section { padding: 70px 0; }
+  .section-title { margin-bottom: 36px; }
+}

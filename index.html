@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Makes the website look good on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeVerse — Build. Learn. Ship.</title>
+
+  <!-- Google Fonts: DM Mono for code feel, DM Sans for readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Our stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION BAR — appears on every page
+  ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <a href="#home" class="nav-logo">Code<span>Verse</span></a>
+    <!-- Hamburger button (only shows on mobile) -->
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#contact" class="nav-cta">Join Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================================
+       SECTION 1 — HOME / HERO
+       First thing visitors see. Should grab attention.
+  ============================================================ -->
+  <section class="hero" id="home">
+    <div class="hero-badge">✦ Est. 2026 · Open to all skill levels</div>
+    <h1 class="hero-title">
+      Build things.<br />
+      Break things.<br />
+      <span class="accent">Ship things.</span>
+    </h1>
+    <p class="hero-sub">
+      CodeVerse is a community of builders, learners, and makers who turn ideas into real projects. No experience required — just curiosity.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Join the Club</a>
+      <a href="#projects" class="btn btn-ghost">See Our Work →</a>
+    </div>
+    <!-- Decorative floating code snippets in background -->
+    <div class="hero-bg-code" aria-hidden="true">
+      <span>const dream = () => build();</span>
+      <span>git commit -m "first step"</span>
+      <span>console.log("hello, world!");</span>
+      <span>npm run create-magic</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — ABOUT US
+       Who you are and what you stand for.
+  ============================================================ -->
+  <section class="section" id="about">
+    <div class="container">
+      <p class="section-label">// About Us</p>
+      <h2 class="section-title">A club built<br />by students, for students.</h2>
+      <div class="about-grid">
+        <!-- Each card is one pillar of your club -->
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Learn Fast</h3>
+          <p>Hands-on workshops where you build real things, not just watch slides. Every session leaves you with something you made.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <h3>Collaborate</h3>
+          <p>Work with peers on projects that matter. Code reviews, pair programming, and team challenges every month.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚀</div>
+          <h3>Ship It</h3>
+          <p>We don't just learn theory — we launch. From hackathons to open-source contributions, we build for the real world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — EVENTS / WORKSHOPS
+       Upcoming events and activities.
+  ============================================================ -->
+  <section class="section section-dark" id="events">
+    <div class="container">
+      <p class="section-label">// Events & Workshops</p>
+      <h2 class="section-title">What's happening<br />at CodeVerse.</h2>
+      <div class="events-list">
+
+         
+
+         
+
+        
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — PROJECTS SHOWCASE
+       Cool things your members have built.
+  ============================================================ -->
+  <section class="section" id="projects">
+    <div class="container">
+      <p class="section-label">// Projects Showcase</p>
+      <h2 class="section-title">Made by members,<br />powered by curiosity.</h2>
+      <div class="projects-grid">
+
+         
+
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — RESOURCES
+       Useful links for members to learn from.
+  ============================================================ -->
+  <section class="section section-dark" id="resources">
+    <div class="container">
+      <p class="section-label">// Resources</p>
+      <h2 class="section-title">Start here.<br />Learn anything.</h2>
+      <div class="resources-grid">
+
+        <!-- RESOURCE ITEM — duplicate to add more -->
+        <a href="https://developer.mozilla.org" target="_blank" class="resource-item">
+          <span class="resource-icon">📖</span>
+          <div>
+            <h4>MDN Web Docs</h4>
+            <p>The best reference for HTML, CSS & JavaScript. Bookmark it forever.</p>
+          </div>
+          <span class="resource-arrow">↗</span>
+        </a>
+
+        <a href="https://www.freecodecamp.org" target="_blank" class="resource-item">
+          <span class="resource-icon">🔥</span>
+          <div>
+            <h4>freeCodeCamp</h4>
+            <p>Free, structured courses to take you from zero to full-stack.</p>
+          </div>
+          <span class="resource-arrow">↗</span>
+        </a>
+
+        <a href="https://github.com" target="_blank" class="resource-item">
+          <span class="resource-icon">🐙</span>
+          <div>
+            <h4>GitHub</h4>
+            <p>Where code lives. Start your profile early — it's your portfolio.</p>
+          </div>
+          <span class="resource-arrow">↗</span>
+        </a>
+
+        <a href="https://www.figma.com" target="_blank" class="resource-item">
+          <span class="resource-icon">🎨</span>
+          <div>
+            <h4>Figma</h4>
+            <p>Design your UI before you code it. Free for students.</p>
+          </div>
+          <span class="resource-arrow">↗</span>
+        </a>
+
+        <a href="https://roadmap.sh" target="_blank" class="resource-item">
+          <span class="resource-icon">🗺️</span>
+          <div>
+            <h4>Roadmap.sh</h4>
+            <p>Visual guides on how to become a frontend, backend, or fullstack dev.</p>
+          </div>
+          <span class="resource-arrow">↗</span>
+        </a>
+
+        <a href="https://leetcode.com" target="_blank" class="resource-item">
+          <span class="resource-icon">🧩</span>
+          <div>
+            <h4>LeetCode</h4>
+            <p>Practice problem-solving. Start easy, stay consistent.</p>
+          </div>
+          <span class="resource-arrow">↗</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — CONTACT / JOIN FORM
+       How people can reach you or sign up.
+  ============================================================ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <p class="section-label">// Contact & Join</p>
+      <h2 class="section-title">Ready to build<br />something real?</h2>
+      <div class="contact-wrapper">
+
+        <!-- The join form -->
+        <form 
+  class="contact-form" 
+  id="join-form"
+  action="https://formspree.io/f/xpqjnekj"
+  method="POST">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <!-- 'required' means the browser won't submit without it -->
+            <input type="text" id="name" name="name" placeholder="e.g. Anya Singh" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@college.edu" required />
+          </div>
+          <div class="form-group">
+            <label for="skill">Your Skill Level</label>
+            <select id="skill" name="skill">
+              <option value="">— Select one —</option>
+              <option value="beginner">Beginner (just starting out)</option>
+              <option value="intermediate">Intermediate (built a few things)</option>
+              <option value="advanced">Advanced (ready to mentor)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">What do you want to build?</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us your idea or what you're excited to learn..."></textarea>
+          </div>
+          <!-- The button that submits the form -->
+          <button type="submit" class="btn btn-primary btn-full">Send My Application ✦</button>
+          <!-- This message shows after form is submitted (hidden by default) -->
+          <p class="form-success" id="form-success">🎉 You're in! We'll reach out soon.</p>
+        </form>
+
+        <!-- Contact info on the side -->
+        <div class="contact-info">
+          <div class="contact-detail">
+            <span>📧</span>
+            <div>
+              <strong>Email</strong>
+              <p>codeverse.club.gcoek@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span>📍</span>
+            <div>
+              <strong>Location</strong>
+              <p> Government College of Engineering,Kolhapur</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span>👀</span>
+            <div>
+              <strong>P.S.</strong>
+              <p>If you have a problem while joining through site you can contact us and send your application via mail</p>
+            </div>
+             <div>
+                 <div class="contact-detail">
+            <span></span>
+            <div>
+              <strong></strong>
+              <p></p>
+            </div>
+          </div>
+          <!--  add social block here -->
+         
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+
+
+  <!-- ============================================================
+       FOOTER — Bottom of every page
+  ============================================================ -->
+  <footer class="footer">
+    <p>Built with ❤️ by <strong>CodeVerse</strong> — <span id="year"></span></p>
+    <p class="footer-sub">Empowering the next generation of builders.</p>
+  </footer>
+
+  <!-- Link to our JavaScript file (always at the bottom, before </body>) -->
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!-- EVENT CARD — duplicate this block to add more events -->
+        <div class="event-card">
+          <div class="event-date">
+            <span class="date-num">14</span>
+            <span class="date-mon">JUN</span>
+          </div>
+          <div class="event-info">
+            <span class="event-tag">Workshop</span>
+            <h3>Intro to Web Development</h3>
+            <p>Build your first website in 2 hours. HTML, CSS, and a sprinkle of JS — no experience needed.</p>
+          </div>
+          <a href="#contact" class="btn btn-outline">RSVP</a>
+        </div>

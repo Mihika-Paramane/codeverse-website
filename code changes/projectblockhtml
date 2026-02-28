@@ -1,0 +1,12 @@
+<div class="project-card">
+          <div class="project-preview" style="background: linear-gradient(135deg, #0f0f0f, #1a1a2e);">
+            <span class="project-emoji">🌐</span>
+          </div>
+          <div class="project-body">
+            <h3>Campus Event Finder</h3>
+            <p>A web app that aggregates all college events in one place. Built with vanilla JS.</p>
+            <div class="project-tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+          </div>
+        </div>
